@@ -1,0 +1,6 @@
+Authorization:
+- error popup
+- phone input
+- user structure?
+- response type
+- refactor formtemplate, inputtemplate
