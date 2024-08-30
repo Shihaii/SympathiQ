@@ -16,12 +16,12 @@ export const registrationMock: FormStep[] = [
     inputs: [
       {
         type: 'text',
-        name: 'firstName',
+        name: 'first_name',
         label: 'First Name'
       },
       {
         type: 'text',
-        name: 'lastName',
+        name: 'last_name',
         label: 'Last Name'
       },
       {
@@ -44,7 +44,7 @@ export const registrationMock: FormStep[] = [
     inputs: [
       {
         type: 'text',
-        name: 'dateOfBirth',
+        name: 'date_of_birth',
         label: 'Date of Birth'
       },
       {
@@ -76,7 +76,7 @@ export const registrationMock: FormStep[] = [
       },
       {
         type: 'select',
-        name: 'timeZone',
+        name: 'time_zone',
         label: 'Time Zone',
         options: [
           {

@@ -1,17 +1,17 @@
 import * as yup from 'yup'
 
 export const registrationRulesStep_1 = yup.object({
-  firstName: yup.string().required().label('Full Name'),
-  lastName: yup.string().required().label('Last Name'),
+  first_name: yup.string().required().label('Full Name'),
+  last_name: yup.string().required().label('Last Name'),
   email: yup.string().required().email().label('Email Address'),
   password: yup.string().required().label('Password')
 })
 
 export const registrationRulesStep_2 = yup.object({
-  dateOfBirth: yup.string().required().label('Date of Birth'),
+  date_of_birth: yup.string().required().label('Date of Birth'),
   gender: yup.string().required().label('Gender'),
   country: yup.string().required().label('Country'),
-  timeZone: yup.string().required().label('Time zone')
+  time_zone: yup.string().required().label('Time zone')
 })
 
 export const registrationRulesStep_3 = yup.object({
