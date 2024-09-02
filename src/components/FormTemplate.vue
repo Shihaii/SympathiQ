@@ -2,9 +2,13 @@
 import { Form } from 'vee-validate'
 import type { FormStep } from '../types'
 import InputTemplate from '../components/InputTemplate.vue'
+import ErrorPopup from '@/components/ErrorPopup.vue'
 import VeeValidate from 'vee-validate'
 import { configure } from 'vee-validate'
 import axios from 'axios'
+import { ref, watch } from 'vue'
+
+var error = ref('')
 
 const props = defineProps<{
   formSteps: FormStep[]
@@ -23,11 +27,10 @@ function getDescription(description: string, part: number) {
   }
 }
 
-function nextStep(values: any) {
-  console.log('Console: ', JSON.stringify(values, null, 2))
+async function nextStep(values: any) {
   if (currentStep === props.formSteps.length - 1) {
     props.token ? (values = { ...values, token: props.token }) : ''
-    props.submitFormTo(values)
+    await props.submitFormTo(values, error)
   } else currentStep++
 }
 
@@ -36,11 +39,12 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
 </script>
 
 <template>
+  <ErrorPopup error-title="Login Failed" :error-text="error"></ErrorPopup>
   <Form
     keep-values
     :validation-schema="formSteps[currentStep].rules"
     @submit="nextStep"
-    class="bg-white rounded-[1.2rem] flex flex-col m-auto shadow-lg shadow-[#a9cbe03a]"
+    class="bg-white z-0 rounded-[1.2rem] flex flex-col m-auto shadow-lg shadow-[#a9cbe03a]"
   >
     <template v-for="(step, index) in formSteps">
       <div
@@ -48,7 +52,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
         class="flex flex-col items-center w-screen"
         v-if="currentStep === index"
       >
-        <img class="pb-[6rem]" :src="step.img">
+        <img class="pb-[6rem]" :src="step.img" />
         <div>
           <h5
             class="text-3xl font-bold bg-gradient-to-r from-[#1A47BF] to-[#D63ACA] text-transparent bg-clip-text text-center"
@@ -73,7 +77,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
           type="submit"
           class="text-btn rounded-full h-[5.5rem] w-full text-[#68838E] font-['Jost'] font-medium bg-[#E1E1E1] mt-14 flex justify-center items-center gap-[0.8rem]"
         >
-        {{ step.buttonText }} <img src="../assets/images/right-arrow.svg" />
+          {{ step.buttonText }} <img src="../assets/images/right-arrow.svg" />
         </button>
 
         <button
@@ -89,7 +93,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
           type="submit"
           class="text-btn rounded-full h-[5.5rem] w-full text-[#68838E] font-['Jost'] font-medium bg-[#E1E1E1] mt-14 flex justify-center items-center gap-[0.8rem]"
         >
-        {{ step.buttonText }} <img src="../assets/images/right-arrow.svg" />
+          {{ step.buttonText }} <img src="../assets/images/right-arrow.svg" />
         </button>
 
         <InputTemplate
