@@ -13,7 +13,7 @@ import { navMock } from '@/utility/navMock'
             class="relative w-full h-[5rem] rounded-l-full pl-[2.4rem] flex gap-8 items-center router-link-exact-active:bg-red"
           >
             <img :src="item.nonActiveIcon" />
-            <span class="text-[#879BA4] font-['Jost'] text-[1.6rem] leading-[2.1rem] font-medium">{{
+            <span class="text-[#879BA4] font-['Jost'] text-16 font-medium">{{
               item.title
             }}</span>
           </RouterLink>
