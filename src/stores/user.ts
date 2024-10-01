@@ -1,4 +1,3 @@
-import { app } from '@/main'
 import router from '@/router'
 import { defineStore } from 'pinia'
 import Cookies from 'js-cookie'
