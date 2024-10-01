@@ -55,18 +55,18 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
         <img class="pb-[6rem]" :src="step.img" />
         <div>
           <h5
-            class="text-3xl font-bold bg-gradient-to-r from-[#1A47BF] to-[#D63ACA] text-transparent bg-clip-text text-center"
+            class="text-36 font-bold bg-gradient-to-r from-[#1A47BF] to-[#D63ACA] text-transparent bg-clip-text text-center"
           >
-            <span class="text-3xl font-bold text-[#1F1E28]">{{
+            <span class="text-36 font-bold text-[#1F1E28]">{{
               getDescription(formSteps[index].title, 1)
             }}</span>
             {{ getDescription(formSteps[index].title, 2) }}
           </h5>
-          <h6 class="text-center text-lg font-medium text-[#64748b]">
+          <h6 class="text-center text-20 font-medium text-[#64748b]">
             {{ formSteps[index].description }}
           </h6>
         </div>
-        <div class="max-w-[38.3rem] w-full flex flex-col">
+        <div class="flex flex-col max-w-[38.3rem] w-full">
           <InputTemplate
             v-for="formInput in formSteps[index].inputs"
             :form-input="formInput"
@@ -75,7 +75,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
         <button
           v-if="currentStep !== 0 && currentStep !== formSteps.length - 1"
           type="submit"
-          class="text-btn rounded-full h-[5.5rem] w-full text-[#68838E] font-['Jost'] font-medium bg-[#E1E1E1] mt-14 flex justify-center items-center gap-[0.8rem]"
+          class="flex justify-center items-center gap-[0.8rem] mt-14 rounded-full h-[5.5rem] w-full bg-[#E1E1E1] text-15 font-['Jost'] font-medium text-[#68838E]"
         >
           {{ step.buttonText }} <img src="../assets/images/right-arrow.svg" />
         </button>
@@ -83,7 +83,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
         <button
           v-else-if="currentStep === 0"
           type="submit"
-          class="text-btn rounded-full h-[5.5rem] max-w-[38.3rem] w-full text-white font-['Jost'] font-medium bg-gradient-to-r from-[#1A47BF] to-[#D63ACA] mt-14"
+          class="mt-14 rounded-full h-[5.5rem] max-w-[38.3rem] w-full bg-gradient-to-r from-[#1A47BF] to-[#D63ACA] text-15 font-['Jost'] font-medium text-white"
         >
           {{ step.buttonText }}
         </button>
@@ -91,7 +91,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
         <button
           v-else-if="currentStep === formSteps.length - 1"
           type="submit"
-          class="text-btn rounded-full h-[5.5rem] w-full text-[#68838E] font-['Jost'] font-medium bg-[#E1E1E1] mt-14 flex justify-center items-center gap-[0.8rem]"
+          class="flex justify-center items-center gap-[0.8rem] mt-14 rounded-full h-[5.5rem] w-full bg-[#E1E1E1] text-15 font-['Jost'] font-medium text-[#68838E]"
         >
           {{ step.buttonText }} <img src="../assets/images/right-arrow.svg" />
         </button>
@@ -113,7 +113,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
         >
         </InputTemplate>
 
-        <div v-if="step.link" class="w-full flex justify-center gap-2 mt-12 text-form-span">
+        <div v-if="step.link" class="flex justify-center gap-2 mt-12 w-full text-14">
           <span class="text-[#426372]">{{ step.link.textBefore }}</span>
           <RouterLink
             :to="step.link.to"

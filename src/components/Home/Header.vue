@@ -7,7 +7,7 @@ import MiniProfile from '../Home/MiniProfile.vue'
   <header class="flex items-center h-[8.6rem] w-full px-[2.9rem]">
     <Search></Search>
     <button
-      class="flex items-center gap-[0.8rem] ml-[2.5rem] h-16 px-[2.8rem] bg-gradient-to-r from-[#1A47BF] to-[#D63ACA] text-[1.4rem] leading-8 font-['Jost'] font-semibold text-white"
+      class="flex items-center gap-[0.8rem] ml-[2.5rem] rounded-full h-16 px-[2.8rem] bg-gradient-to-r from-[#1A47BF] to-[#D63ACA] text-14 font-['Jost'] font-semibold text-white"
     >
       <img src="/src/assets/images/lightning-icon.svg" />
       Upgrade Your Profile
@@ -29,7 +29,7 @@ import MiniProfile from '../Home/MiniProfile.vue'
         <div
           class="rounded-full max-w-[1.7rem] w-full max-h-[1.7rem] h-full bg-gradient-to-r from-[#1A47BF] to-[#D63ACA]"
         >
-          <span class="text-[1rem] leading-[1.4rem] font-['Jost'] font-medium text-white">2</span>
+          <span class="text-10 font-['Jost'] font-medium text-white">2</span>
         </div>
       </div>
     </button>

@@ -8,7 +8,7 @@ import SideBar from '../components/Home/SideBar.vue'
     <SideBar></SideBar>
     <div class="flex flex-col w-full">
       <Header></Header>
-      <section>
+      <section class="w-full pt-8 pb-24 px-16">
         <RouterView></RouterView>
       </section>
     </div>

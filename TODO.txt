@@ -6,6 +6,9 @@ Authorization:
 
 
 ?
-- error popup via prop or asignment
-- avatar gradient border rotate
-- avatar green indicator round?
+
+
+
+- photo to public
+- tailwind colors
+- input template decomposing
