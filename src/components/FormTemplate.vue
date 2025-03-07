@@ -8,8 +8,8 @@ import { configure } from 'vee-validate'
 import axios from 'axios'
 import { ref, watch } from 'vue'
 
-var error = ref('')
-
+let error = ref('')
+console.log('error',error);
 const props = defineProps<{
   formSteps: FormStep[]
   submitFormTo: Function
@@ -39,7 +39,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
 </script>
 
 <template>
-  <ErrorPopup error-title="Login Failed" :error-text="error"></ErrorPopup>
+  <ErrorPopup v-if="error !== ''" error-title="Login Failed" :error-text="error"></ErrorPopup>
   <Form
     keep-values
     :validation-schema="formSteps[currentStep].rules"
@@ -69,6 +69,7 @@ var styles = 'max-w-[44rem] px-[5rem] py-[5rem]'
         <div class="flex flex-col max-w-[38.3rem] w-full">
           <InputTemplate
             v-for="formInput in formSteps[index].inputs"
+            :key="formInput.name"
             :form-input="formInput"
           ></InputTemplate>
         </div>
