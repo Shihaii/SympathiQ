@@ -18,7 +18,7 @@ const token = route.query.token?.toString() ?? undefined
 </script>
 
 <template>
-  <div class="w-screen h-screen overflow-hidden fixed">
+  <div class="fixed left-[50%] w-screen max-w-[144rem] h-screen overflow-hidden">
     <div
       class="absolute -z-10 rounded-full blur-3xl w-[44.2vw] h-[40.2vh] top-[31.6vh] left-[-36.9vw] opacity-50 bg-[#FFDFA9]"
     ></div>
@@ -32,7 +32,7 @@ const token = route.query.token?.toString() ?? undefined
       class="absolute -z-10 rounded-full blur-3xl w-[49.9vw] h-[41.4vh] top-[-12.3vh] right-[-33vw] opacity-40 bg-[#B9B7FD]"
     ></div>
   </div>
-  <div class="flex flex-col align-center justify-center w-full min-h-[100vh] py-[10rem]">
+  <div class="flex flex-col align-center justify-center mx-auto w-full max-w-[144rem] min-h-[100vh] py-[10rem]">
     <img class="z-[1] m-auto mb-[3vh]" src="../assets/logo.svg" />
     <FormTemplate
       class="z-[1]"
