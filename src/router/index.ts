@@ -12,6 +12,12 @@ import { forgotPassword, loginUser, resetPassword } from '@/controllers/UserCont
 import { useUserStore } from '@/stores/user'
 import { useSubmitForm } from 'vee-validate'
 import Dashboard from '@/components/Dashboard/Dashboard.vue'
+import MarketSection from '@/components/Market/MarketSection.vue'
+import Friends from '@/components/Dashboard/Friends.vue'
+import SavedSection from '@/components/Saved/SavedSection.vue'
+import SavedProducts from '@/components/Saved/SavedProducts.vue'
+import SavedSpecialists from '@/components/Saved/SavedSpecialists.vue'
+import ForumSection from '@/components/Forum/ForumSection.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,20 +28,34 @@ const router = createRouter({
       component: HomeView,
       children:[
         {
+          path:'/',
+          component: Dashboard
+        },
+        {
           path:'dashboard',
           component: Dashboard
         },
         {
           path:'market',
-          component: Dashboard
+          component: MarketSection
         },
         {
           path:'saved',
-          component: Dashboard
+          component: SavedSection,
+          children:[
+            {
+              path:'',
+              component: SavedProducts
+            },
+            {
+              path:'specialists',
+              component: SavedSpecialists
+            }
+          ]
         },
         {
           path:'forum',
-          component: Dashboard
+          component: ForumSection
         },
         {
           path:'tests',
@@ -72,6 +92,11 @@ const router = createRouter({
         {
           path:'settings',
           component: Dashboard
+        }
+        ,
+        {
+          path:'friends',
+          component: Friends
         }
       ]
     },
@@ -123,21 +148,21 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach(async (to) => {
-  const publicPages = [ 
-    '/login',
-    '/registration',
-    '/forgot-password',
-    '/restore-password',
-    '/forgot-password/success',
-    '/restore-password/success'
-  ]
-  const authRequired = !publicPages.includes(to.path)
-  const auth = useUserStore()
+// router.beforeEach(async (to) => {
+//   const publicPages = [ 
+//     '/login',
+//     '/registration',
+//     '/forgot-password',
+//     '/restore-password',
+//     '/forgot-password/success',
+//     '/restore-password/success'
+//   ]
+//   const authRequired = !publicPages.includes(to.path)
+//   const auth = useUserStore()
 
-  if (authRequired && !auth.user) {
-    return '/login'
-  }
-})
+//   if (authRequired && !auth.user) {
+//     return '/login'
+//   }
+// })
 
 export default router
