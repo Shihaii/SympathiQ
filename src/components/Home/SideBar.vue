@@ -7,10 +7,10 @@ import { navMock } from '@/utility/navMock'
     <img class="mt-[2.6rem] ml-[4.7rem] max-w-[16.5rem] w-full" src="/src/assets/logo.svg" />
     <nav class="mt-[7.4rem] ml-[2.6rem]">
       <ul>
-        <li v-for="item in navMock">
+        <li v-for="item in navMock" :key="item.title">
           <RouterLink
             :to="item.routerLink"
-            class="relative w-full h-[5rem] rounded-l-full pl-[2.4rem] flex gap-8 items-center router-link-exact-active:bg-red"
+            class="relative w-full h-[5rem] rounded-l-full pl-[2.4rem] flex gap-8 items-center"
           >
             <img :src="item.nonActiveIcon" />
             <span class="text-[#879BA4] font-['Jost'] text-16 font-medium">{{

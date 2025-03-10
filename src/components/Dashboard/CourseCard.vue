@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="relative flex flex-col gap-[1.9rem] rounded-[2rem] p-8 w-full shadow-lg">
-        <img src="/src/assets/images/course-bg-1.jpg">
+    <div class="relative flex flex-col gap-[1.9rem] rounded-[2rem] p-8 max-w-[53.5rem] w-full shadow-lg">
+        <img class="w-full" src="/src/assets/images/course-bg-1.jpg">
         <div class="absolute flex gap-[0.8rem] top-[2.9rem] right-[3.8rem]">
             <span class="rounded-full py-[0.6rem] px-4 bg-[#130C1A26] text-12 font-['Jost'] font-medium text-white">2h 4m 32s</span>
             <button class="rounded-full p-[0.6rem] bg-[#130C1A26]"><img src="/src/assets/images/heart-white-icon.svg"></button>

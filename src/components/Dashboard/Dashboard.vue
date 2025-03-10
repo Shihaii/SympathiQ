@@ -1,27 +1,53 @@
 <script setup lang="ts">
-import ApexCharts from 'apexcharts'
-import Section from './Section.vue'
+import {ref} from "vue";
+import Section from './Section.vue';
 import DoctorCard from './DoctorCard.vue';
 import CourseCard from './CourseCard.vue';
 
-var options = {
-  chart: {
-    type: 'line'
+const options = ref({
+  yaxis: {
+    show: false
   },
-  series: [
-    {
-      name: 'sales',
-      data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
-    }
-  ],
   xaxis: {
-    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+    categories: ["Jan 15", "Jan 16", "Jan 17", "Jan 18", "Jan 19", "Jan 20", "Jan 21"],
+  },
+  chart: {
+    events: {},
+    toolbar:{
+      show: false
+    },
+    zoom:{
+      enabled: false
+    }
+  },
+  grid: {
+    show: false
+  },
+  colors:['#1A47BF', '#1A47BF', '#1A47BF'],
+  fill: {
+    type: "gradient",
+    gradient: {
+      // type: "horizontal",
+      // gradientToColors: ['#1A47BF'],
+      shadeIntensity: 1,
+      opacityFrom: 0.7,
+      opacityTo: 0.9,
+      stops: [0, 90, 100]
+    }
+  },
+
+  dataLabels: {
+    enabled: false
   }
-}
+})
 
-var chart = new ApexCharts(document.querySelector('#chart'), options)
+var series = ref([
+    {
+      name: 'Happy',
+      data: [30, 40, 35, 50, 49, 60, 70]
+    }
+  ])
 
-chart.render()
 </script>
 
 <template>
@@ -91,7 +117,7 @@ chart.render()
   </div>
 
   <div>
-    <apexchart id="chart"></apexchart>
+   <apexchart height="235px" type="area" :options="options" :series="series"/>
   </div>
 
   <Section header="Recomended for You">

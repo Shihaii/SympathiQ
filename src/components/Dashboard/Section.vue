@@ -18,7 +18,7 @@ const props = defineProps<{
         <img src="/src/assets/images/top-right-arrow.svg">
       </button>
     </div>
-    <div class="flex gap-8">
+    <div class="flex gap-8 flex-wrap">
       <slot></slot>
     </div>
   </div>

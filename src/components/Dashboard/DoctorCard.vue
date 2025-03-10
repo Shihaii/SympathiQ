@@ -3,7 +3,7 @@
 </script>
 
 <template>
-     <div class="flex flex-col rounded-[2rem] p-8 w-full shadow-lg">
+     <div class="flex flex-col rounded-[2rem] p-8 max-w-[35rem] w-full shadow-lg">
       <div class="flex justify-between">
         <img
           src="/src/assets/images/avatar_test.jfif"
@@ -12,7 +12,8 @@
         <div class="flex items-center gap-[1.2rem]">
           <div class="flex gap-4 rounded-full py-[0.5rem] px-[1rem] bg-gradient-to-r from-[#3A6FFD0D] to-[#D63ACA0D]">
             <div class="flex items-center gap-[0.4rem]">
-              <img src="/src/assets/images/age-icon.svg" /><span
+              <img src="/src/assets/images/age-icon.svg" />
+              <span
                 class="text-14 font-['Jost'] font-medium bg-gradient-to-r from-[#1A47BF] to-[#D63ACA] text-transparent bg-clip-text"
                 >28</span
               >
