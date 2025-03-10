@@ -3,14 +3,15 @@ import { useUserStore } from '@/stores/user'
 import axios from 'axios'
 import type { Ref } from 'vue'
 
+const baseUrl = import.meta.env.VITE_API_URL
+
 export const createUser = (values: any, errors: Ref<string>) => {
   delete values.agree
   axios
-    .post(`https://api-scipro.sheep.fish/wp-json/api/v1/registration`, {
+    .post(`${baseUrl}/registration`, {
       ...values
     })
-    .then((response: { data: any }) => {
-      console.log(response.data)
+    .then((response: { data: string }) => {
       const user = useUserStore()
       user.login(response.data)
     })  
@@ -21,11 +22,11 @@ export const createUser = (values: any, errors: Ref<string>) => {
 
 export const loginUser = async (values: any, errors: Ref<string>) => {
   await axios
-    .post(`https://api-scipro.sheep.fish/wp-json/api/v1/authorization`, {
+    .post(`${baseUrl}/authorization`, {
       ...values
     })
     .then((response: { data: any }) => {
-      console.log('response.data - ', response.data)
+      console.log('data: ',response.data)
       const user = useUserStore()
       user.login(response.data)
     })
@@ -36,12 +37,11 @@ export const loginUser = async (values: any, errors: Ref<string>) => {
 
 export const forgotPassword = (values: any, errors: Ref<string>) => {
   axios
-    .post(`https://api-scipro.sheep.fish/wp-json/api/v1/forgot_password`, {
+    .post(`${baseUrl}/forgot_password`, {
       ...values
     })
-    .then((response: { data: any }) => {
-      console.log(response.data)
-      if (response.status == 200) router.push('/forgot-password/success')
+    .then((response) => {
+      if (response.status === 200) router.push('/forgot-password/success')
     })
     .catch((error) => {
       errors.value = String(error.response.data.message)
@@ -51,11 +51,10 @@ export const forgotPassword = (values: any, errors: Ref<string>) => {
 export const resetPassword = (values: any, errors: Ref<string>) => {
   delete values.confirm_password
   axios
-    .post(`https://api-scipro.sheep.fish/wp-json/api/v1/reset_password`, {
+    .post(`${baseUrl}/reset_password`, {
       ...values
     })
-    .then((response: { data: any }) => {
-      console.log(response.data)
+    .then((response) => {
       if (response.status == 200) router.push('/restore-password/success')
     })
     .catch((error) => {
