@@ -25,6 +25,8 @@ export interface Option {
   id: string
   value: string
   text: string
+  minValue?: number
+  maxValue?: number
 }
 
 export interface Link {
@@ -80,4 +82,36 @@ export interface ForumTopic {
   name: string;
   request: string;
   subtopics?: ForumTopic[];
+}
+
+export interface Quiz{
+  id: string;
+  title: string;
+  img: string;
+  description: string;
+  authorId: string;
+  tags: string[];
+  steps: QuizStep[];
+}
+
+export interface QuizStep{
+  title: string;
+  question: QuizQuestion[];
+}
+
+export interface QuizQuestion{
+  id: string;
+  text: string;
+  img?: string;
+  type: string;
+  options: Option[];
+}
+
+export interface QuizResult{
+  title: string;
+  img: string;
+  text: QuizParagraph[];
+}
+export interface QuizParagraph{
+  paragraph: string;
 }

@@ -12,3 +12,10 @@ Authorization:
 - photo to public
 - tailwind colors
 - input template decomposing
+
+
+
+Quiz:
+Optimize rerender for quiz (while 2 steps and 3 question in total does 9 renders instead of 3 )
+
+? does it good to relocate in query for result

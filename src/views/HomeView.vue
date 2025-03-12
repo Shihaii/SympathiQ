@@ -1,6 +1,16 @@
 <script setup lang="ts">
+import { onMounted, onUpdated } from 'vue'
 import Header from '../components/Home/Header.vue'
 import SideBar from '../components/Home/SideBar.vue'
+
+onMounted(() => {
+  // text content should be the same as current `count.value`
+  console.log('HomeView mounted')
+})
+onUpdated(() => {
+  // text content should be the same as current `count.value`
+  console.log('HomeView rerender')
+})
 </script>
 
 <template>

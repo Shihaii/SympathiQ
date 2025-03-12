@@ -18,6 +18,9 @@ import SavedSection from '@/components/Saved/SavedSection.vue'
 import SavedProducts from '@/components/Saved/SavedProducts.vue'
 import SavedSpecialists from '@/components/Saved/SavedSpecialists.vue'
 import ForumSection from '@/components/Forum/ForumSection.vue'
+import TestsSection from '@/components/Tests/TestsSection.vue'
+import TestPage from '@/components/Tests/TestPage.vue'
+import QuizResult from '@/components/Tests/QuizResult.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -59,7 +62,17 @@ const router = createRouter({
         },
         {
           path:'tests',
-          component: Dashboard
+          component: TestsSection
+        },
+        {
+          path:'quiz',
+          component: TestPage
+        },
+        {
+          path:'quiz-result/:resultJSON',
+          name:'quizResult',
+          component: QuizResult,
+          props: true
         },
         {
           path:'my-appointments',
