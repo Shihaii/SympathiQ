@@ -8,7 +8,7 @@ defineProps<{
   formInput: FormInput
 }>()
 
-let www = 12
+let phoneModel = 12
 let showPassword = ref(false)
 let passType = ref('password')
 
@@ -168,12 +168,12 @@ watch(showPassword, (newValue) => {
       <input
         type="text"
         v-mask="'+###'"
-        v-model="www"
+        v-model="phoneModel"
         class="relative box-border max-w-[8.5rem] w-[100%] text-16 h-[5.5rem] rounded-full px-10 mt-4 border-2 border-[#E1E1E1] [&.is-invalid]:border-[#F41A0C] [&.is-invalid]:text-[#F41A0C]"
       />
       <Field v-slot="{ meta, field }" :name="formInput.name"
         ><input
-          v-model="www"
+          v-model="phoneModel"
           v-bind="field"
           v-mask="'+### (##) ###-##-##'"
           :name="formInput.name"
